@@ -1,5 +1,5 @@
-#!/bin/python3
-for i in range(97, 123):
-    if i == 101 or i == 113:
+#!/usr/bin/python3
+for c in range(97, 123):
+    if c == 101 or c == 113:
         continue
-    print("{}".format(chr(i)), end="");
+    print("{}".format(chr(c)), end="")
