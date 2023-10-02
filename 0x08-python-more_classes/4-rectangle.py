@@ -59,4 +59,5 @@ class Rectangle:
         rows = (("#" * self.width) + "\n") * self.height
         return rows[:-1]
     def __repr__(self):
+        """Initialize represetation for developer readable."""
         return f"Rectangle({self.width}, {self.height})"
