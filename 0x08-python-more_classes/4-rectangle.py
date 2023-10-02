@@ -58,8 +58,8 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return ""
         rows = (("#" * self.width) + "\n") * self.height
-        return rows[:-1]  # Remove the trailing newline
+        return rows[:-1]
 
     def __repr__(self):
         """Return a formal representation of the rectanle."""
-        return f"Rectangle({self.width}, {self.height})"
+        return f"Rectangle({self.width}, {self.heigiht})"
