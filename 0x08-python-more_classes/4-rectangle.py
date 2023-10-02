@@ -1,28 +1,20 @@
 #!/usr/bin/python3
-"""Define a rectangle class."""
-
-
 class Rectangle:
-    """Represent a rectangle."""
+    """Defines a rectangle."""
 
     def __init__(self, width=0, height=0):
-        """Initialize a rectangle.
-
-        Args:
-        width (int): the width of rectangle.
-        height (int): the height of a rectangle.
-
-        """
+        """Initialize rectangle with optional width and height."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Get/set the width of a rectangle."""
+        """Retrieve the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Set the width of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -31,34 +23,35 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set a height of a rectangle."""
+        """Retrieve the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Set the height of the rectangle."""
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
-        """Get the area."""
+        """Return the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Get the perimeter."""
+        """Return the perimeter of the rectangle."""
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Initialize a string."""
+        """Return the string representation of the rectangle."""
         if self.width == 0 or self.height == 0:
             return ""
-        rows = []
         rows = (("#" * self.width) + "\n") * self.height
-        return rows[:-1]
+        return rows[:-1]  # Remove the trailing newline
+
     def __repr__(self):
-        """Initialize represetation for developer readable."""
+        """Return a formal representation of the rectangle."""
         return f"Rectangle({self.width}, {self.height})"
