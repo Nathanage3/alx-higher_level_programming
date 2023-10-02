@@ -1,20 +1,29 @@
 #!/usr/bin/python3
+"""Define a rectangle class."""
+
+
 class Rectangle:
-    """Defines a rectangle."""
+    """Represent a rectangle class."""
+
 
     def __init__(self, width=0, height=0):
-        """Initialize rectangle with optional width and height."""
+        """Initialize a rectangle class.
+
+        Args:
+            width (int): width of the rectangle.
+            height (int): height of the rectangle.
+
+            """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Retrieve the width of the rectangle."""
+        """Get/set the width."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -23,12 +32,11 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height of the rectangle."""
+        """Get/set the height."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -46,12 +54,12 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return the string representation of the rectangle."""
+        """Return string representation of the rectangle."""
         if self.width == 0 or self.height == 0:
             return ""
         rows = (("#" * self.width) + "\n") * self.height
         return rows[:-1]  # Remove the trailing newline
 
     def __repr__(self):
-        """Return a formal representation of the rectangle."""
+        """Return a formal representation of the rectanle."""
         return f"Rectangle({self.width}, {self.height})"
