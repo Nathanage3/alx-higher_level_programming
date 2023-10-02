@@ -56,6 +56,7 @@ class Rectangle:
         """Initialize a string."""
         if self.width == 0 or self.height == 0:
             return ""
+        rows = []
         rows = (("#" * self.width) + "\n") * self.height
         return rows[:-1]
     def __repr__(self):
