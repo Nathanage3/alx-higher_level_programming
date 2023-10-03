@@ -1,0 +1,120 @@
+======================
+0-add_integer
+======================
+
+Add integer module this module is the the unit test for the add_integer function
+
+=====================
+
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
+
+::
+
+	>>> add_integer(3, -2)
+	1
+
+It also works with float numbers
+
+::
+
+	>>> add_integer(98.5, 30.2)
+	128
+
+It also works with 2 float negative numbers
+
+::
+
+    >>> add_integer(-5.9, -0.7)
+    -5
+
+It also works with one integer number and one float number.
+
+::
+
+    >>> add_integer(5.5, -2)
+    3
+
+It also works with one argument. 2nd arg is default as 98
+
+::
+
+    >>> add_integer(2)
+    100
+
+TypeError message of None arguments declared
+
+::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+TypeError message of second argument non declared
+
+::
+
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+TypeError a is not a integer
+
+::
+
+    >>> add_integer("text", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+TypeError b is not a integer
+
+::
+
+    >>> add_integer(3, "text")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+NameError a is not a integer is not string
+
+::
+
+    >>> add_integer(text, 3)
+    Traceback (most recent call last):
+    NameError: name 'text' is not defined
+
+NameError a and b are not integers nor string
+
+::
+
+    >>> add_integer(text1, text2)
+    Traceback (most recent call last):
+    NameError: name 'text1' is not defined
+
+TypeError a and b are not integers
+
+::
+
+    >>> add_integer("text1", "text2")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+OverflowError causing infinity flow when a is int and b is inf
+
+::
+
+    >>> add_integer(4, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+ValueError for Non assigned Number NaN
+
+::
+
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::

@@ -1,0 +1,87 @@
+======================
+4-print_square
+======================
+
+Print square  module is the unit test that verifies print of '#' in a row
+
+=====================
+
+::
+
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+It also works with 10 square
+
+::
+
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+It also works with square 0 but prints nothing
+
+::
+
+    >>> print_square(0)
+
+It also works with 1 square
+
+::
+
+    >>> print_square(1)
+    #
+
+TypeError when adding None
+
+::
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+ValueError when adding negative number to size
+
+::
+
+    >>> print_square(-10)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+ValueError when adding a negative float
+
+::
+
+    >>> print_square(-10.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+TypeError when adding a string in the size parameter
+
+::
+
+    >>> print_square("hello")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+TyeError when non value is added to the parameter
+
+::
+
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+::

@@ -1,0 +1,79 @@
+======================
+3-say_my_name
+======================
+
+Say my name module is the unit test that verifies print of first and last name
+
+=====================
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("Jhon", "Smith")
+    My name is Jhon Smith
+
+::
+
+    >>> say_my_name("Betty", "Holberton")
+    My name is Betty Holberton
+
+It also works with only one name the next arg print empty string
+
+::
+
+    >>> say_my_name("Edward")
+    My name is Edward 
+
+TypeError there is not a string in the first name
+
+::
+
+    >>> say_my_name(8, "Edward")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+TypeError there is not a string in the last name
+
+::
+
+    >>> say_my_name("Edward", 8)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+TypeError adding another list, tuple or dict either first or last name
+
+::
+
+    >>> say_my_name({"Edward: 3", "Ortiz: 0"}, 8)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name("Edward", {"Edward: 3", "Ortiz: 0"})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+::
+
+    >>> say_my_name({"Edward: 3", "Ortiz: 0"}, "Ortiz")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+TypeError if there is not input
+
+::
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+TypeError if is None the input
+
+::
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::

@@ -1,0 +1,99 @@
+======================
+5-text_square
+======================
+
+Print square  module is the unit test that verifies print of '#' in a row
+
+=====================
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("elit.")
+    elit.
+    <BLANKLINE>
+
+It also works when there is a space in the beginning of a line.
+
+::
+
+    >>> text_indentation("	adipiscing elit.")
+    adipiscing elit.
+    <BLANKLINE>
+
+It also works when there is no argument printed in the string
+
+::
+
+    >>> text_indentation("    ")
+
+
+It also works when there are spaces at the end of a line
+
+::
+
+    >>> text_indentation("commovere?    ")
+    commovere?
+    <BLANKLINE>
+
+It also works when there are spaces and a new line with the same pattern
+
+::
+
+    >>> text_indentation("    illud quidem.    nihil dolere.   ")
+    illud quidem.
+    <BLANKLINE>
+    nihil dolere.
+    <BLANKLINE>
+
+It also works when there is no '?', '.', ':' in the end of the line
+
+::
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur")
+    Lorem ipsum dolor sit amet, consectetur
+
+It also works when you print a newline \n
+
+::
+
+    >>> text_indentation("finem illi videri nihil dolere.\n Transfer idem.")
+    finem illi videri nihil dolere.
+    <BLANKLINE>
+    <BLANKLINE>
+    Transfer idem.
+    <BLANKLINE>
+
+::
+
+    >>> text_indentation("\n\n Lorem ipsum dolor.")
+    <BLANKLINE>
+    <BLANKLINE>
+    Lorem ipsum dolor.
+    <BLANKLINE>
+
+TypeError is not a string
+
+::
+
+    >>> text_indentation(4)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+TypeError is not string
+
+::
+
+    >>> text_indentation({"Lorem": 1, "ipsum": 2})
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+TypeError is None
+
+::
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::

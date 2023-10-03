@@ -1,0 +1,120 @@
+======================
+101-lazy_matrix_mul
+======================
+
+Lazy Matrix multiplication  module is the unit test that verifies matrix mul function created using numpy
+
+=====================
+
+::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 7, 10],
+    	   [15, 22]])
+
+::
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6, 7], [8, 9, 10]])
+    array([[21, 24, 27],
+           [47, 54, 61]])
+
+::
+
+    >>> lazy_matrix_mul([[1, 5, 7]], [[3], [5], [8]])
+    array([[84]])
+
+::
+
+
+    >>> lazy_matrix_mul((1, 2), [1, 2])
+    5
+
+::
+
+
+    >>> lazy_matrix_mul([1, 2], (1, 2))
+    5
+
+::
+
+
+    >>> lazy_matrix_mul([[1, 4], (1, 2)], [[1, 2], [4, 5]])
+    array([[17, 22],
+       	   [ 9, 12]])
+
+::
+
+
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6], []], [[5, 5, 6], [4, 5, 6]])
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+::
+
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [], [1, 2, 3]])
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+::
+
+    >>> print(lazy_matrix_mul(()))
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+::
+
+    >>> print(lazy_matrix_mul())
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+::
+
+    >>> print(lazy_matrix_mul("string", [[1, 2]]))
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+::
+
+    >>> print(lazy_matrix_mul([[1, 2]], "string"))
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+::
+
+    >>> print(lazy_matrix_mul([1, 2], [[3, 4]]))
+    Traceback (most recent call last):
+    ValueError: shapes (2,) and (1,2) not aligned: 2 (dim 0) != 1 (dim 0)
+
+
+::
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4, 5]]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+::
+
+    >>> m_a = [[1, 2], [3, 4, 5]]
+    >>> m_b = m_a
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+::
+
+    >>> print(lazy_matrix_mul([[1, 2]], [3, 4]))
+    [11]
+
+::
+
+    >>> print(lazy_matrix_mul([1, 2], [3, 4]))
+    11
+
+::
+
+    >>> print(lazy_matrix_mul(None, None))
+    Traceback (most recent call last):
+    TypeError: Object arrays are not currently supported
