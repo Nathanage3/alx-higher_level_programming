@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-import dis
-import sys
+import importlib.util
 
 
 def print_names_from_module(filename):
-    with open(filename, 'rb') as file:
-        bytecode = file.read()
-        code_obj = dis._unpack_code(bytecode)
+    spec = importlib.util.spec_from_file_location('hidden_module', filename)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 
-        # Extract names from code object
-        names = code_obj.co_names
-
-        # Filter names starting with '__'
-        valid_names = [name for name in names if not name.startswith('__')]
-
-        # Print names in sorted order
-        for name in sorted(valid_names):
+    for name in dir(module):
+        if not name.startswith('__'):
             print(name)
+
+
+if __name__ == '__main__':
+    print_names_from_module('hidden_4.pyc')
