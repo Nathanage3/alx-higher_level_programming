@@ -5,13 +5,23 @@
 
 class MyInt(int):
     """Define a class MyInt"""
-    pass
+    def __eq__(self, num):
+        """Define an equal to method
 
-    def __int__(self):
-        """Initializing the class MyIint"""
-        self.num = num
+            Args:
+                num (int): the number passed to MyInt class
+            Returns:
+                An inverted number value.
+        """
+        return super().__ne__(num)
 
-    def val_retun(self):
-        """Returning an inverted value"""
-        num = int.inverted
-        return num
+    def __ne__(self, num):
+        """Define a method for returning equal to.
+
+            Args:
+            num (int): the number from MyInt
+
+            Returns:
+                An equal to value which is inverse
+        """
+        return super().__eq__(num)
