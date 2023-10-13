@@ -27,6 +27,5 @@ def append_after(filename="", search_string="", new_string=""):
             i += 1  # Skip the newly added line
         i += 1
 
-    # Write the modified lines back to the file
     with open(filename, 'w') as f:
         f.writelines(lines)
