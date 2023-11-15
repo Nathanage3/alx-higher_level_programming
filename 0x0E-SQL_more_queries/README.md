@@ -33,11 +33,11 @@ Illustrative examples
 
 Creating a New MySQL User:
 sql
-Copy code
+
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 Managing Privileges:
 sql
-Copy code
+
 -- Grant SELECT privilege on all tables in mydb to the user.
 GRANT SELECT ON mydb.* TO 'newuser'@'localhost';
 
@@ -76,7 +76,7 @@ CREATE TABLE users (
 Retrieving Data from Multiple Tables:
 sql
 
--- Using an INNER JOIN to retrieve data from multiple tables
+ Using an INNER JOIN to retrieve data from multiple tables
 SELECT students.student_name, enrollments.course_id
 FROM students
 INNER JOIN enrollments ON students.student_id = enrollments.student_id;
