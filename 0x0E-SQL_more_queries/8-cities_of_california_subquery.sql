@@ -1,13 +1,5 @@
--- a script that creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa
-CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
-
--- Switches to hbtn_0d_usa
-USE hbtn_0d_usa;
-
--- CREATE TABLE CITIES
-CREATE TABLE IF NOT EXISTS cities (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	state_id INT NOT NULL,
-	name VARCHAR(256) NOT NULL,
-	FOREIGN KEY (state_id) REFERENCE states(id)
-);
+--  a script that lists all the cities of California that can be found in the database hbtn_0d_usa.
+SELECT cities.id, cities.name
+FROM cities, (SELECT id FROM states WHERE name = 'California') AS california_states
+WHERE cities.state_id = california_states.id
+ORDER BY cities.id ASC;
