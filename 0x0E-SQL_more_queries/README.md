@@ -61,8 +61,7 @@ CREATE TABLE enrollments (
     student_id INT,
     course_id INT,
     PRIMARY KEY (enrollment_id),
-    FOREIGN KEY (student_id) REFERENCES students(student_id)
-);
+    FOREIGN KEY (student_id) REFERENCES students(student_id));
 NOT NULL and UNIQUE Constraints:
 sql
 
