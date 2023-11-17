@@ -32,7 +32,6 @@ Illustrative examples
 
 
 Creating a New MySQL User:
-sql
 
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 Managing Privileges:
