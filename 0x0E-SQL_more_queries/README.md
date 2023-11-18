@@ -87,7 +87,6 @@ FROM users
 WHERE user_id IN (SELECT user_id FROM orders GROUP BY user_id HAVING COUNT(*) > 1);
 JOIN and UNION:
 sql
-
 -- Using a JOIN to combine rows from two tables
 SELECT employees.name, departments.name
 FROM employees
