@@ -1,33 +1,21 @@
 #!/usr/bin/python3
+"""
+Filter states by user input
+It takes in an argument and displays all values in the states table
+"""
+
 import MySQLdb
-import re
 from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) != 5:
-        print("Usage: <username> <password> <database>")
-        exit(1)
-
-    username, password, database, state_name = argv[1], argv[2], argv[3], argv[4]
-
-    db = MySQLdb.connect(
-        host="localhost",
-        user=username,
-        port=3306,
-        password=password,
-        db=database
-    )
-
-    cur = db.cursor()
-
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id".format(state_name)
-
-    cur.execute(query)
-
-    states = cur.fetchall()
-
-    for r in states:
-        print(r)
-
-    cur.close()
+    db = MySQLdb.connect(user=argv[1],
+                         passwd=argv[2], db=argv[3])
+    query = "SELECT * FROM states\
+             WHERE states.name LIKE BINARY '{}'\
+             ORDER BY states.id ASC".format(argv[4])
+    cursor = db.cursor()
+    cursor.execute(query)
+    for state in cursor.fetchall():
+        print(state)
+    cursor.close()
     db.close()
