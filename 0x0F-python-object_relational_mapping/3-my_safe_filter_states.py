@@ -12,7 +12,9 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3])
     state_name = argv[4]
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE states.name = %s ORDER BY states.id ASC"
+    query = "SELECT * FROM states\
+            WHERE states.name = %s\
+            ORDER BY states.id ASC"
     cur.execute(query, (argv[4], ))
     states = cur.fetchall()
     for r in states:
