@@ -8,8 +8,8 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(username=argv[1],
-                         passwd=argv[2], db=argv[3])
+    db = MySQLdb.connect(host="localhost",
+                         username=argv[1], passwd=argv[2], db=argv[3])
     state_name = argv[4]
     cur = db.cursor()
     query = "SELECT * FROM states\
