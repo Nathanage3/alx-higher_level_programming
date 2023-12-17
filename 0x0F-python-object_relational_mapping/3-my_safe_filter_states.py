@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A script that takes in arguments and display all values from db.
-But this time mysql injection comes to work.  
+Filter states by user input safe from MySQL injections!
+It takes in an argument and displays all values in the states table
 """
 
 import MySQLdb
@@ -9,15 +9,13 @@ from sys import argv
 
 if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost",
-                         username=argv[1], passwd=argv[2], db=argv[3])
-    state_name = argv[4]
-    cur = db.cursor()
+                         user=argv[1], passwd=argv[2], db=argv[3])
     query = "SELECT * FROM states\
-            WHERE states.name = %s\
-            ORDER BY states.id ASC"
-    cur.execute(query, (argv[4], ))
-    states = cur.fetchall()
-    for r in states:
-        print(r)
-    cur.close()
+             WHERE states.name = %s\
+             ORDER BY states.id ASC"
+    cursor = db.cursor()
+    cursor.execute(query, (argv[4], ))
+    for state in cursor.fetchall():
+        print(state)
+    cursor.close()
     db.close()
