@@ -1,21 +1,23 @@
 #!/usr/bin/python3
 """
-A python module that lists states from db
+Lists all states with a name starting with N (upper N)
+It takes 3 arguments: mysql username, mysql password and database name
 """
 
 import MySQLdb
 from sys import argv
-import re
 
-if __name__ == '__main__':
-    if len(argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(argv[0]))
-        exit(1)
+if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost",
-                        user=argv[1], password=argv[2], db=argv[3])
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name REGEXP '^N' ORDER BY states.id")
-    for state in cur.fetchall():
+                         user=argv[1], passwd=argv[2], db=argv[3])
+    query = "SELECT * FROM states\
+             WHERE states.name LIKE BINARY 'N%'\
+             ORDER BY states.id ASC"
+    cursor = db.cursor()
+    cursor.execute(query)
+    for state in cursor.fetchall(filter.states.name.like 'N%'):
         print(state)
-    cur.close()
+    cursor.close()
     db.close()
+
+
